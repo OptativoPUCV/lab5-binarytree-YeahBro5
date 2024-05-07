@@ -127,7 +127,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         return;
     }
 
-    // caso 1 no tiene hijos
+    // Caso 1, no tiene hijos
 
     if (temp->right == NULL && temp->left == NULL)
     {
@@ -148,6 +148,33 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             }
         }
     }
+    // Caso 2, tiene 1 hijo
+    else if (temp->right == NULL || temp->left == NULL)
+    {
+        TreeNode *reemplazo;
+        if (temp->left != NULL)
+        {
+            reemplazo =  temp->left;
+        }
+        else
+        {
+            reemplazo = temp->right;
+        }
+        ////
+        if (temp == tree->root)
+        {
+            tree->root = reemplazo;
+        }
+        else if (parent->left == temp)
+        {
+            parent->left = reemplazo;
+        }
+        else
+        {
+            parent->right = reemplazo;
+        }
+    }
+    
 
 }
 
