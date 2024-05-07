@@ -117,7 +117,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         
         if (is_equal(tree, key, tree->current->pair->key))
         {
-            parent = tree->current->parent;
+            //parent = tree->current->parent;
             temp = tree->current;
             
         }
