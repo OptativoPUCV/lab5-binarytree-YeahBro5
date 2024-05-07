@@ -106,92 +106,13 @@ TreeNode * minimum(TreeNode * x){
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
-    TreeNode* temp = NULL;
+    //TreeNode* temp = NULL;
     //TreeNode* parent = NULL;
     tree->current = tree->root;
 
     Pair *key = node->pair->key;
 
-    // Primero buscamos el nodo a eliminar y su padre
-    while(tree->current != NULL) {
-        
-        if (is_equal(tree, key, tree->current->pair->key))
-        {
-            //parent = tree->current->parent;
-            temp = tree->current;
-            
-        }
-        else if (tree->lower_than(key, tree->current->pair->key))
-        {
-            tree->current = tree->current->left;
-        }
-        else
-        {
-             tree->current = tree->current->right;
-        }
-        
-    }
-
-    if(tree->current == NULL)  // Si el nodo no se encuentra en el árbol
-        return;
-    // caso 1
-/*
-    if (temp->left == NULL && temp->right == NULL)
-    {
-        if (temp == tree->root)
-        {
-            tree->root = NULL;
-            free(temp);
-            
-        }
-        else
-        {
-            if (parent->right == temp)
-            {
-                parent->right = NULL;
-            }
-            else
-            {
-                parent->left = NULL;   
-            }
-            free(temp);
-        }
-    }
-    else if (temp->left == NULL && temp->right != NULL)
-    {
-        if (temp == tree->root)
-        {
-            tree->root = temp->right;
-        }
-        else if (parent->right == temp)
-        {
-            parent->right = temp->right;
-        }
-        else{
-            parent->left = temp->right;
-        }
-        free(temp);
-    }
-        
-    else if (temp->left != NULL && temp->right == NULL)
-    {
-        if (temp == tree->root)
-        {
-            tree->root = temp->left;
-        }
-        else if (parent->right == temp)
-        {
-            parent->right = temp->left;
-        }
-        else{
-            parent->left = temp->left;
-        }
-        free(temp);
-    }
-
-
-
-*/
+    
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
