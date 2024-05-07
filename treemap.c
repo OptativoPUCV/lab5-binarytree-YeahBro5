@@ -172,6 +172,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         }
         free(temp);
     }
+        /*
     else if (temp->left != NULL && temp->right == NULL)
     {
         if (temp == tree->root)
@@ -190,7 +191,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 
 
 
-
+*/
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
