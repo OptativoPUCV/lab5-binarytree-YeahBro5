@@ -182,11 +182,11 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 
     else{
         TreeNode *sucesor = minimum(temp->right);
-        int sucesorKey = sucesor->pair->key;
-        void *sucesorData = sucesor->pair->data;
-        removeNode(tree, sucesorKey);
+        int *sucesorKey = sucesor->pair->key;
+        void *sucesorData = sucesor->pair->value;
+        removeNode(tree, sucesor);
         temp->pair->key = sucesorKey;
-        temp->pair->data = sucesorData;
+        temp->pair->value = sucesorData;
         
         }
     
