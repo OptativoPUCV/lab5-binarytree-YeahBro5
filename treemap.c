@@ -174,6 +174,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
             parent->right = reemplazo;
         }
         free(temp);
+        reemplazo->parent = parent;
         
     }
     
