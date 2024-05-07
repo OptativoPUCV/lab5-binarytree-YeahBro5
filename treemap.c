@@ -106,7 +106,7 @@ TreeNode * minimum(TreeNode * x){
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
-    TreeNode* temp;
+    TreeNode* temp = NULL;
     TreeNode* parent = NULL;
     tree->current = tree->root;
 
@@ -135,7 +135,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     if(temp == NULL)  // Si el nodo no se encuentra en el árbol
         return;
     // caso 1
-
+/*
     if (temp->left == NULL && temp->right == NULL)
     {
         if (temp == tree->root)
@@ -172,7 +172,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         }
         free(temp);
     }
-        /*
+        
     else if (temp->left != NULL && temp->right == NULL)
     {
         if (temp == tree->root)

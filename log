@@ -130,3 +130,14 @@ treemap.c:166:17: error: ‘temp’ may be used uninitialized in this function [
 cc1: all warnings being treated as errors
 Compilation failed
 ba6fa03
+Tue 07 May 2024 07:16:35 PM UTC: 
+ treemap.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:110:15: error: variable ‘parent’ set but not used [-Werror=unused-but-set-variable]
+  110 |     TreeNode* parent = NULL;
+      |               ^~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+efa2bd7
