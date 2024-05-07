@@ -177,6 +177,18 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         reemplazo->parent = parent;
         
     }
+
+    // Caso 3, tiene 2 hijos
+
+    else{
+        TreeNode *sucesor = minimum(temp->right);
+        int sucesorKey = sucesor->pair->key;
+        void *sucesorData = sucesor->pair->data;
+        removeNode(tree, sucesorKey);
+        temp->pair->key = sucesorKey;
+        temp->pair->data = sucesorData;
+        
+        }
     
 
 }
