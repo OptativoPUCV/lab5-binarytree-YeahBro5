@@ -55,3 +55,56 @@ Tue 07 May 2024 05:13:42 PM UTC:
  tests:  15|4
 total_score: 25/70
 56b7359
+Tue 07 May 2024 06:40:01 PM UTC: 
+ treemap.c | 55 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 55 insertions(+)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:138:9: error: unknown type name ‘Tree_Node’; did you mean ‘TreeNode’?
+  138 |         Tree_Node* child;
+      |         ^~~~~~~~~
+      |         TreeNode
+treemap.c:140:19: error: assignment to ‘int *’ from incompatible pointer type ‘TreeNode *’ [-Werror=incompatible-pointer-types]
+  140 |             child = temp->left;
+      |                   ^
+treemap.c:142:19: error: assignment to ‘int *’ from incompatible pointer type ‘TreeNode *’ [-Werror=incompatible-pointer-types]
+  142 |             child = temp->right;
+      |                   ^
+treemap.c:146:30: error: assignment to ‘TreeNode *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+  146 |                 parent->left = child;
+      |                              ^
+treemap.c:148:31: error: assignment to ‘TreeNode *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+  148 |                 parent->right = child;
+      |                               ^
+treemap.c:150:24: error: assignment to ‘TreeNode *’ from incompatible pointer type ‘int *’ [-Werror=incompatible-pointer-types]
+  150 |             tree->root = child;
+      |                        ^
+treemap.c:157:9: error: unknown type name ‘Tree_Node’; did you mean ‘TreeNode’?
+  157 |         Tree_Node* successor = getMinimumNode(temp->right);
+      |         ^~~~~~~~~
+      |         TreeNode
+treemap.c:157:32: error: implicit declaration of function ‘getMinimumNode’ [-Werror=implicit-function-declaration]
+  157 |         Tree_Node* successor = getMinimumNode(temp->right);
+      |                                ^~~~~~~~~~~~~~
+treemap.c:157:32: error: initialization of ‘int *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+treemap.c:158:32: error: request for member ‘key’ in something not a structure or union
+  158 |         int succKey = successor->key;
+      |                                ^~
+treemap.c:159:35: error: request for member ‘data’ in something not a structure or union
+  159 |         void* succData = successor->data;
+      |                                   ^~
+treemap.c:160:9: error: implicit declaration of function ‘delete’ [-Werror=implicit-function-declaration]
+  160 |         delete(tree, succKey);  // Eliminamos el sucesor
+      |         ^~~~~~
+treemap.c:161:13: error: ‘TreeNode’ has no member named ‘key’
+  161 |         temp->key = succKey;
+      |             ^~
+treemap.c:162:13: error: ‘TreeNode’ has no member named ‘data’
+  162 |         temp->data = succData;
+      |             ^~
+treemap.c:112:11: error: unused variable ‘key’ [-Werror=unused-variable]
+  112 |     Pair *key = node->pair->key;
+      |           ^~~
+cc1: all warnings being treated as errors
+Compilation failed
+a9b8f83
