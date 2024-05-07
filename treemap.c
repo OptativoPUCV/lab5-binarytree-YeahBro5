@@ -106,61 +106,90 @@ TreeNode * minimum(TreeNode * x){
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
-    TreeNode* temp = tree->root;
+    TreeNode* temp;
     TreeNode* parent = NULL;
+    tree->current = tree->root;
 
     Pair *key = node->pair->key;
 
     // Primero buscamos el nodo a eliminar y su padre
-    while(temp != NULL) {
+    while(tree->current != NULL) {
         
+        if (is_equal(tree, key, tree->current->pair->key))
+        {
+            parent = tree->current->parent;
+            temp = tree->current;
+            
+        }
+        else if (tree->lower_than(key, tree->current->pair->key))
+        {
+            tree->current = tree->current->left;
+        }
+        else
+        {
+             tree->current = tree->current->right;
+        }
         
     }
 
     if(temp == NULL)  // Si el nodo no se encuentra en el árbol
         return;
+    // caso 1
 
-    // Caso 1: el nodo es una hoja
-    if(temp->left == NULL && temp->right == NULL) {
-        if(temp != tree->root) {
-            if(parent->left == temp)
-                parent->left = NULL;
-            else
-                parent->right = NULL;
-        } else {
+    if (temp->left == NULL && temp->right == NULL)
+    {
+        if (temp == tree->root)
+        {
             tree->root = NULL;
+            free(temp);
+            
         }
-
-        free(temp);
-    }
-    // Caso 2: el nodo tiene un solo hijo
-    else if(temp->left == NULL || temp->right == NULL) {
-        Tree_Node* child;
-        if(temp->left != NULL)
-            child = temp->left;
         else
-            child = temp->right;
-
-        if(temp != tree->root) {
-            if(parent->left == temp)
-                parent->left = child;
+        {
+            if (parent->right == temp)
+            {
+                parent->right = NULL;
+            }
             else
-                parent->right = child;
-        } else {
-            tree->root = child;
+            {
+                parent->left = NULL;   
+            }
+            free(temp);
         }
-
+    }
+    else if (temp->left == NULL && temp->right != NULL)
+    {
+        if (temp == tree->root)
+        {
+            tree->root = temp->right;
+        }
+        else if (parent->right == temp)
+        {
+            parent->right = temp->right;
+        }
+        else{
+            parent->left = temp->right;
+        }
         free(temp);
     }
-    // Caso 3: el nodo tiene dos hijos
-    else {
-        Tree_Node* successor = getMinimumNode(temp->right);
-        int succKey = successor->key;
-        void* succData = successor->data;
-        delete(tree, succKey);  // Eliminamos el sucesor
-        temp->key = succKey;
-        temp->data = succData;
+    else if (temp->left != NULL && temp->right == NULL)
+    {
+        if (temp == tree->root)
+        {
+            tree->root = temp->left;
+        }
+        else if (parent->right == temp)
+        {
+            parent->right = temp->left;
+        }
+        else{
+            parent->left = temp->left;
+        }
+        free(temp);
     }
+
+
+
 
 }
 

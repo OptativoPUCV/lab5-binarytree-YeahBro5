@@ -108,3 +108,14 @@ treemap.c:112:11: error: unused variable ‘key’ [-Werror=unused-variable]
 cc1: all warnings being treated as errors
 Compilation failed
 a9b8f83
+Tue 07 May 2024 07:12:54 PM UTC: 
+ treemap.c | 95 +++++++++++++++++++++++++++++++++++++++++----------------------
+ 1 file changed, 62 insertions(+), 33 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘removeNode’:
+treemap.c:181:17: error: ‘temp’ may be used uninitialized in this function [-Werror=maybe-uninitialized]
+  181 |         else if (parent->right == temp)
+      |                 ^
+cc1: all warnings being treated as errors
+Compilation failed
+f7e1106
