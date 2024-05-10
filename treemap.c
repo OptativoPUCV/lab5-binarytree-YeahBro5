@@ -255,5 +255,21 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+    if (tree == NULL || tree->current == NULL) return NULL;  
+
+    TreeNode *current = tree->current;
+
+    // caso 1 si hay un subarbol derecho
+    if (current->right != NULL) {
+        current = minimum(current->right);
+        return current->pair;
+        }
+
+    // caso 2 no hay derecho
+    TreeNode *parent = current->parent;
+    while (parent != NULL && current == parent->right) {
+        current = parent;
+        parent = parent->parent;
+    }
+    tree->current = parent;
 }
