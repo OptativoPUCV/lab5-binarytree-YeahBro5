@@ -262,6 +262,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     // caso 1 si hay un subarbol derecho
     if (current->right != NULL) {
         current = minimum(current->right);
+        tree->current = current;
         return current->pair;
         }
 
