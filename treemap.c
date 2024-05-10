@@ -233,9 +233,6 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 Pair * upperBound(TreeMap * tree, void* key) {
     return NULL;
 }
-/*
-Implemente las funciones para recorrer la estructura: Pair* firstTreeMap(TreeMap* tree) retorna el primer Pair del mapa (el menor). Pair* nextTreeMap(TreeMap* tree) retornar el siguiente Pair del mapa a partir del puntero TreeNode* current. Recuerde actualizar este puntero.
-*/
 
 Pair * firstTreeMap(TreeMap * tree) {
     if (tree == NULL) return NULL;
@@ -260,15 +257,17 @@ Pair * nextTreeMap(TreeMap * tree) {
     TreeNode *current = tree->current;
 
     // caso 1 si hay un subarbol derecho
-    if (current->right != NULL) {
+    if (current->right != NULL) 
+    {
         current = minimum(current->right);
         tree->current = current;
         return current->pair;
-        }
+    }
 
     // caso 2 no hay derecho
     TreeNode *parent = current->parent;
-    while (parent != NULL && current == parent->right) {
+    while (parent != NULL && current == parent->right) 
+    {
         current = parent;
         parent = parent->parent;
     }
