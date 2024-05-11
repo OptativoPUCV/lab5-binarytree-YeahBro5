@@ -248,10 +248,9 @@ Pair * upperBound(TreeMap * tree, void* key)
             }
             else if (tree->lower_than(key, current->pair->key))
             {
-                if (flag == 0)
+                if (tree->lower_than(current->pair->key, aux->pair->key))
                 {
                     aux = current;
-                    flag = 1;
                 }
                 current = current->left;
             }
