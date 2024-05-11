@@ -236,7 +236,7 @@ Pair * upperBound(TreeMap * tree, void* key)
 {
     if (tree == NULL) return NULL;
 
-    unsigned short flag = 0; 
+    //unsigned short flag = 0; 
     TreeNode *current = tree->root;
     TreeNode *aux = tree->root;
     while (current != NULL)
