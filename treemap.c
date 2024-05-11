@@ -238,17 +238,16 @@ Pair * upperBound(TreeMap * tree, void* key)
 
     //unsigned short flag = 0; 
     TreeNode *current = tree->root;
-    TreeNode *aux = tree->root;
+    TreeNode *aux = NULL;
     while (current != NULL)
         {
             if (is_equal(tree, key, current->pair->key))
             {
-                aux = current;
-                return aux->pair;
+                return current->pair;
             }
             else if (tree->lower_than(key, current->pair->key))
             {
-                if (tree->lower_than(current->pair->key, aux->pair->key))
+                if (aux == NULL || tree->lower_than(current->pair->key, aux->pair->key))
                 {
                     aux = current;
                 }
@@ -259,6 +258,8 @@ Pair * upperBound(TreeMap * tree, void* key)
                  current = current->right;
             }
         }
+
+    return aux->pair;
 
     
     
