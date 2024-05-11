@@ -236,15 +236,15 @@ Pair * upperBound(TreeMap * tree, void* key)
 {
     if (tree == NULL) return NULL;
 
-    unsigned short flag; 
-    flag = 0;
+    unsigned short flag = 0; 
     TreeNode *current = tree->root;
     TreeNode *aux = tree->root;
     while (current != NULL)
         {
             if (is_equal(tree, key, current->pair->key))
             {
-                return (current->pair);
+                aux = current;
+                return aux->pair;
             }
             else if (tree->lower_than(key, current->pair->key))
             {
